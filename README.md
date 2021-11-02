@@ -11,9 +11,3 @@ php artisan prepper:seed
 npm install
 npm run dev
 ```
-
-## Enable SSR
-
-```bash
-node server.js
-```
