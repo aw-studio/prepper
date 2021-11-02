@@ -55,8 +55,8 @@ class InstallCommand extends Command
         if ($withCms) {
             $this->installCms();
             $this->comment("\nPlease execute 'php artisan prepper:publish'.\n");
-            $this->comment("\nPlease execute 'php artisan prepper:seed'.\n");
             $this->comment("\nPlease execute 'php artisan prepper:localize'.\n");
+            $this->comment("\nPlease execute 'php artisan prepper:seed'.\n");
         }
 
         $this->callSilent('migrate');
@@ -93,6 +93,7 @@ class InstallCommand extends Command
         copy(__DIR__.'/../../stubs/config/.php-cs-fixer.dist.php', base_path('.php-cs-fixer.dist.php'));
         copy(__DIR__.'/../../stubs/config/.prettierignore', base_path('.prettierignore'));
         copy(__DIR__.'/../../stubs/config/.prettierrc', base_path('.prettierrc'));
+        copy(__DIR__.'/../../stubs/config/ssr.js', base_path('ssr.js'));
 
         copy(__DIR__.'/../../stubs/vitt/routes/web.php', base_path('routes/web.php'));
 
