@@ -1,17 +1,13 @@
 <template>
-    <UiInfoBox v-html="repeatable.text" />
+    <Infobox :infobox="repeatable" />
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-    props: {
-        repeatable: {
-            type: Object,
-        },
-    },
-    setup(props) {
-        //
+<script lang="ts" setup>
+import { Infobox } from '@/components';
+
+defineProps({
+    repeatable: {
+        type: Object,
     },
 });
 </script>

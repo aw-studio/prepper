@@ -39,6 +39,7 @@ class PublishCommand extends Command
     {
         $this->call('vendor:publish', ['--provider' => "Litstack\Pages\PagesServiceProvider"]);
         $this->call('vendor:publish', ['--provider' => "Litstack\Meta\MetaServiceProvider"]);
+        $this->call('vendor:publish', ['--provider' => "AwStudio\Redirects\RedirectsServiceProvider"]);
 
         $this->call('migrate');
     }

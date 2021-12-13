@@ -1,7 +1,7 @@
 <template>
     <Meta title="Home" />
     <Hero v-if="form.has_hero" :form="form" />
-    <div class="container">
+    <div class="container mt-16">
         <h1>{{ form.h1 }}</h1>
     </div>
     <LitBlock :block="form.content" :repeatables="ContentRepeatables" />

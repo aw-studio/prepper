@@ -46,10 +46,17 @@ class SectionCardsRepeatable extends Repeatable
             ->repeatables(function ($repeatables) {
                 $repeatables->add('card', function ($form, $preview) {
                     $preview->col('{title}');
+                    $form->image('image')
+                        ->title('Optionales Bild')
+                        ->expand(true)
+                        ->crop(4 / 3)
+                        ->maxFiles(1)
+                        ->width(12);
                     $form->input('title')
                         ->title('Title');
-                    $form->input('text')
+                    $form->textarea('text')
                         ->title('Text');
+                    $form->linkMacro();
                 });
             });
     }

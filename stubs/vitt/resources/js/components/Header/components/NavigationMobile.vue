@@ -12,7 +12,7 @@
                 <div v-for="(link, index) in mainNavigation.data" :key="index">
                     <Link
                         :href="link.route"
-                        class="text-gray-900  hover:text-gray-600 hover:border-gray-600"
+                        class="font-semibold text-gray-900  hover:text-gray-500 hover:border-gray-500"
                         @click="closeNav()"
                     >
                         {{ link.title }}

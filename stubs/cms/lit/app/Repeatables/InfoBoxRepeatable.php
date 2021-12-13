@@ -45,5 +45,6 @@ class InfoBoxRepeatable extends Repeatable
             ->title('Titel');
         $form->wysiwyg('text')
             ->title('Text');
+        $form->linkMacro();
     }
 }

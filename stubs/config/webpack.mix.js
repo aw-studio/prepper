@@ -14,4 +14,6 @@ mix.alias({
     '@': path.join(__dirname, 'resources/js'),
 });
 
+mix.copy('resources/fonts', 'public/fonts');
+
 mix.postCss('resources/css/app.css', 'public/css', [require('tailwindcss')]);

@@ -114,7 +114,9 @@ mix.browserSync({
                 '@inertiajs/inertia'      => '^0.10.0',
                 '@inertiajs/inertia-vue3' => '^0.5.1',
                 '@tailwindcss/typography' => '^0.4.1',
+                '@types/google.maps'      => '^3.47.1',
                 '@vue/compiler-sfc'       => '^3.1.5',
+                'acorn'                   => '^8.6.0',
                 'tailwindcss'             => '^2.2.7',
                 'ts-loader'               => '^9.2.4',
                 'typescript'              => '^4.3.5',
@@ -134,6 +136,7 @@ mix.browserSync({
             });
 
         $this->installMiddlewareAfter('SubstituteBindings::class', '\App\Http\Middleware\HandleInertiaRequests::class');
+        $this->installRedirectsMiddleware();
     }
 
     public function installLitstack()
@@ -173,6 +176,7 @@ mix.browserSync({
             'litstack/bladesmith:^1.0',
             'litstack/pages:^2.1',
             'litstack/meta:^2.0',
+            'aw-studio/laravel-redirects:^0.1.0',
         );
 
         $this->updateNodePackages(function ($packages) {
@@ -190,8 +194,10 @@ mix.browserSync({
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/cms/lit/app/Macros', base_path('lit/app/Macros'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/cms/lit/app/Http/Controllers/Form', base_path('lit/app/Http/Controllers/Form'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/cms/Http/Resources', app_path('Http/Resources'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/cms/Models/Traits', app_path('Models/Traits'));
 
         copy(__DIR__.'/../../stubs/cms/Http/Controllers/HomeController.php', app_path('Http/Controllers/Pages/HomeController.php'));
+        copy(__DIR__.'/../../stubs/cms/Http/Controllers/ContactController.php', app_path('Http/Controllers/Pages/ContactController.php'));
         copy(__DIR__.'/../../stubs/cms/Http/Controllers/RootController.php', app_path('Http/Controllers/Pages/RootController.php'));
         copy(__DIR__.'/../../stubs/cms/Http/Middleware/HandleInertiaRequests.php', app_path('Http/Middleware/HandleInertiaRequests.php'));
         copy(__DIR__.'/../../stubs/cms/lit/app/Config/NavigationConfig.php', base_path('lit/app/Config/NavigationConfig.php'));
@@ -312,5 +318,32 @@ mix.browserSync({
                 $httpKernel
             ));
         }
+    }
+
+    /**
+     * Install the middleware to a group in the application Http Kernel.
+     *
+     * @param  string $after
+     * @param  string $name
+     * @param  string $group
+     * @return void
+     */
+    protected function installRedirectsMiddleware()
+    {
+        $httpKernel = file_get_contents(app_path('Http/Kernel.php'));
+
+        $middleware = Str::before(Str::after($httpKernel, '$middleware = ['), '];');
+
+        $modifiedMiddleware = str_replace(
+            'ConvertEmptyStringsToNull::class,',
+            'ConvertEmptyStringsToNull::class,'.PHP_EOL.'        // \AwStudio\Redirects\Middleware\RedirectRoutesMiddleware::class,',
+            $middleware,
+        );
+
+        file_put_contents(app_path('Http/Kernel.php'), str_replace(
+            $middleware,
+            $modifiedMiddleware,
+            $httpKernel
+        ));
     }
 }

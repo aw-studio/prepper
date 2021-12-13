@@ -13,13 +13,7 @@
                         leave-to="opacity-0"
                     >
                         <DialogOverlay
-                            class="
-                                fixed
-                                inset-0
-                                filter
-                                bg-black bg-opacity-30
-                                backdrop-filter backdrop-blur-sm
-                            "
+                            class="fixed inset-0 bg-black  filter bg-opacity-30 backdrop-filter backdrop-blur-sm"
                         />
                     </TransitionChild>
 
@@ -40,32 +34,11 @@
                         leave-to="opacity-0 scale-95"
                     >
                         <div
-                            class="
-                                inline-block
-                                w-full
-                                md:max-w-xl
-                                lg:max-w-3xl
-                                p-6
-                                my-8
-                                relative
-                                overflow-hidden
-                                text-left
-                                align-middle
-                                transition-all
-                                transform
-                                bg-white
-                                shadow-xl
-                                rounded-sm
-                            "
+                            class="relative inline-block w-full p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white  md:max-w-xl lg:max-w-3xl"
                         >
                             <DialogTitle
                                 as="h3"
-                                class="
-                                    text-xl
-                                    font-semibold
-                                    leading-8
-                                    text-gray-900
-                                "
+                                class="text-xl font-semibold leading-8 text-gray-900 "
                             >
                                 <slot name="title" />
                             </DialogTitle>
@@ -80,7 +53,7 @@
                                         width="24"
                                         height="24"
                                         preserveAspectRatio="xMinYMin"
-                                        class="icon__icon fill-current"
+                                        class="fill-current icon__icon"
                                     >
                                         <path
                                             d="M7.314 5.9l3.535-3.536A1 1 0 1 0 9.435.95L5.899 4.485 2.364.95A1 1 0 1 0 .95 2.364l3.535 3.535L.95 9.435a1 1 0 1 0 1.414 1.414l3.535-3.535 3.536 3.535a1 1 0 1 0 1.414-1.414L7.314 5.899z"

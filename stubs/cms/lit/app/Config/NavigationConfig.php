@@ -4,7 +4,9 @@ namespace Lit\Config;
 
 use Ignite\Application\Navigation\Config;
 use Ignite\Application\Navigation\Navigation;
+use Lit\Config\Form\Components\FooterConfig;
 use Lit\Config\Form\Navigations\NavigationsConfig;
+use Lit\Config\Form\Pages\ContactConfig;
 use Lit\Config\Form\Pages\HomeConfig;
 use Lit\Config\Pages\RootConfig;
 
@@ -42,6 +44,7 @@ class NavigationConfig extends Config
             $nav->title('Seiten'),
 
             $nav->preset(HomeConfig::class)->icon(fa('home')),
+            $nav->preset(ContactConfig::class)->icon(fa('id-card')),
             $nav->preset(RootConfig::class, ['icon' => fa('newspaper')]),
         ]);
         $nav->section([
@@ -53,7 +56,7 @@ class NavigationConfig extends Config
             $nav->title('Komponenten'),
 
             $nav->preset(NavigationsConfig::class, ['icon' => fa('list')]),
-            // $nav->preset(FooterConfig::class, ['icon' => fa('address-card')]),
+            $nav->preset(FooterConfig::class, ['icon' => fa('address-card')]),
             // Footer
         ]);
     }

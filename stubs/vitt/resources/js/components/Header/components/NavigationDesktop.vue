@@ -1,5 +1,5 @@
 <template>
-    <nav class="relative justify-end w-full space-x-4">
+    <nav class="relative justify-end w-full space-x-12">
         <NavigationLink
             v-for="(link, index) in mainNavigation.data"
             :key="index"

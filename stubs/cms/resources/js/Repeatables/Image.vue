@@ -1,21 +1,18 @@
 <template>
-    <div class="container pb-8">
-        <LitImage :image="image" v-if="image" class="w-full" />
+    <div v-if="repeatable.image.length == 1" class="container mb-16">
+        <Image :image="repeatable.image" />
+    </div>
+    <div v-else class="container mb-16">
+        <ImageGallery :images="repeatable.image" />
     </div>
 </template>
 
-<script setup lang="ts">
-import { computed } from 'vue';
-const props = defineProps({
+<script lang="ts" setup>
+import { defineComponent, onMounted, ref } from 'vue';
+import { Image, ImageGallery } from '@/components';
+defineProps({
     repeatable: {
         type: Object,
     },
-});
-
-const image = computed(() => {
-    if (Array.isArray(props.repeatable?.image)) {
-        return props.repeatable?.image[0];
-    }
-    return props.repeatable?.image;
 });
 </script>

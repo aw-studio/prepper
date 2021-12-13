@@ -1,14 +1,9 @@
 <template>
     <header
         :class="{ '-translate-y-20 md:-translate-y-28': !showNavbar }"
-        class="sticky top-0 z-30 w-screen transition-transform duration-200 transform bg-white "
+        class="sticky top-0 z-30 w-screen transition-transform duration-200 transform bg-gray-100 "
     >
-        <nav class="text-white bg-gray-700">
-            <div class="container flex justify-end">
-                <Localize />
-            </div>
-        </nav>
-        <div class="container flex items-center justify-between py-3">
+        <div class="container flex items-center justify-between py-4 lg:py-10">
             <Logo class="w-32 h-auto" />
             <NavigationDesktop class="hidden lg:flex" />
             <BurgerButton class="lg:hidden" />

@@ -3,10 +3,11 @@
 namespace Lit\Providers;
 
 use Ignite\Crud\Fields\Route;
-use Lit\Macros\Form\HeroMacro;
-use Litstack\Pages\Models\Page;
-use Lit\Macros\Form\ContentMacro;
 use Illuminate\Support\ServiceProvider;
+use Lit\Macros\Form\ContentMacro;
+use Lit\Macros\Form\HeroMacro;
+use Lit\Macros\Form\LinkMacro;
+use Litstack\Pages\Models\Page;
 
 class LitstackServiceProvider extends ServiceProvider
 {
@@ -29,9 +30,11 @@ class LitstackServiceProvider extends ServiceProvider
     {
         (new ContentMacro)->register();
         (new HeroMacro)->register();
+        (new LinkMacro)->register();
 
         Route::register('app', function ($collection) {
             $collection->route('Home', 'home', fn ($locale) => route('home'));
+            $collection->route('Contact', 'contact', fn ($locale) => route('contact'));
             Page::collection('root')->get()->addToRouteCollection('Seiten', $collection);
         });
     }

@@ -25,7 +25,7 @@
         >
             <div
                 :class="{
-                    'absolute left-0 bottom-0 -mb-16 w-full md:w-1/2 lg:w-1/3 bg-white py-8 px-12 rounded shadow ml-16':
+                    'absolute left-0 bottom-0 -mb-16 w-full md:w-1/2 lg:w-1/3 bg-white py-8 px-12 ml-16':
                         !sm,
                 }"
             >

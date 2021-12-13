@@ -4,7 +4,7 @@
             {{ locale }}
         </MenuButton>
         <MenuItems
-            class="absolute right-0 mt-2 text-gray-900 origin-top-right bg-gray-100 shadow "
+            class="absolute right-0 mt-2 text-gray-900 origin-top-right bg-gray-100 "
         >
             <MenuItem
                 v-slot="{ active }"

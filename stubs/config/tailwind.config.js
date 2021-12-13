@@ -20,29 +20,19 @@ module.exports = {
         colors: {
             white: 'white',
             primary: {
-                50: '#EDE6F4',
-                100: '#E6D8F5',
-                300: '#6600CB',
-                500: '#48008F',
-                700: '#37006E',
-                DEFAULT: '#48008F',
+                300: '#A4D5FF',
+                500: '#1896FF',
+                DEFAULT: '#1896FF',
             },
             secondary: {
                 500: '#FFB73B',
                 DEFAULT: '#FFB73B',
             },
             gray: {
-                50: '#F8F8F8',
-                100: '#EDEDED',
-                200: '#A1A1A1',
-                300: '#7D7D7D',
-                400: '#5E5E5E',
-                500: '#4C4C4C',
-                600: '#3E3E3E',
-                700: '#2F2F2F',
-                800: '#1F1F1F',
-                900: '#111111',
-                DEFAULT: '#4C4C4C',
+                100: '#E7E7E7',
+                500: '#A8A8A8',
+                900: '#272727',
+                DEFAULT: '#A8A8A8',
             },
             green: {
                 DEFAULT: '#35E376',
@@ -55,15 +45,15 @@ module.exports = {
             },
         },
         fontFamily: {
-            sans: ['Arial', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
         },
         fontSize: {
             xs: ['12px', '20px'],
             sm: ['14px', '24px'],
-            base: ['18px', '30px'],
-            lg: ['21px', '31px'],
+            base: ['16px', '26px'],
+            lg: ['20px', '31px'],
             xl: ['25px', '35px'],
-            '2xl': ['35px', '42px'],
+            '2xl': ['32px', '42px'],
         },
         boxShadow: {
             DEFAULT: '0px 28px 32px -22px rgba(0,0,0,0.15)',
@@ -74,7 +64,7 @@ module.exports = {
         plugin(function ({ addBase }) {
             addBase({
                 body: {
-                    fontFamily: ['Arial', 'sans-serif'],
+                    fontFamily: ['Inter'],
                     '@apply text-gray-900 text-base antialiased': {},
                 },
                 'h1, h2, h3, h4, p, ol, ul, .h1, .h2, .h3, .h4, blockquote': {
@@ -120,7 +110,7 @@ module.exports = {
                     content: '"•"',
                 },
                 'li::before': {
-                    '@apply text-primary-700 text-right mr-3 w-5 inline-block absolute left-0':
+                    '@apply text-gray-900 text-right mr-3 w-5 inline-block absolute left-0':
                         {},
                 },
                 'ol li': {
