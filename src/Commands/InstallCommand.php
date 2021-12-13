@@ -191,8 +191,10 @@ mix.browserSync({
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/cms/lit/app/Http/Controllers/Pages', base_path('lit/app/Http/Controllers/Pages'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/cms/lit/app/Repeatables', base_path('lit/app/Repeatables'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/cms/lit/app/Config/Form', base_path('lit/app/Config/Form'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/cms/lit/app/Config/Crud', base_path('lit/app/Config/Crud'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/cms/lit/app/Macros', base_path('lit/app/Macros'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/cms/lit/app/Http/Controllers/Form', base_path('lit/app/Http/Controllers/Form'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/cms/lit/app/Http/Controllers/Crud', base_path('lit/app/Http/Controllers/Crud'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/cms/Http/Resources', app_path('Http/Resources'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/cms/Models/Traits', app_path('Models/Traits'));
 
@@ -336,7 +338,7 @@ mix.browserSync({
 
         $modifiedMiddleware = str_replace(
             'ConvertEmptyStringsToNull::class,',
-            'ConvertEmptyStringsToNull::class,'.PHP_EOL.'        // \AwStudio\Redirects\Middleware\RedirectRoutesMiddleware::class,',
+            'ConvertEmptyStringsToNull::class,'.PHP_EOL.'        \AwStudio\Redirects\Middleware\RedirectRoutesMiddleware::class,',
             $middleware,
         );
 

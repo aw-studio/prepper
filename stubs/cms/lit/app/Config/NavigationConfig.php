@@ -5,6 +5,7 @@ namespace Lit\Config;
 use Ignite\Application\Navigation\Config;
 use Ignite\Application\Navigation\Navigation;
 use Lit\Config\Form\Components\FooterConfig;
+use Lit\Config\Crud\RedirectConfig;
 use Lit\Config\Form\Navigations\NavigationsConfig;
 use Lit\Config\Form\Pages\ContactConfig;
 use Lit\Config\Form\Pages\HomeConfig;
@@ -51,6 +52,10 @@ class NavigationConfig extends Config
             $nav->title('Daten Objekte'),
 
             // Crud
+        ]);
+        $nav->section([
+            $nav->title('URL'),
+            $nav->preset(RedirectConfig::class)->icon(fa('directions')),
         ]);
         $nav->section([
             $nav->title('Komponenten'),
