@@ -6,7 +6,9 @@ use App\Http\Resources\LitNavigationResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Middleware;
+use Lit\Config\Form\Components\FooterConfig;
 use Lit\Config\Form\Navigations\NavigationsConfig;
+use Litstack\Pages\Models\Page;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -40,10 +42,21 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request)
     {
         $navigations = NavigationsConfig::load();
+        $footer = FooterConfig::loadResourceArray();
 
         $localize = collect(config('translatable.locales'))->mapWithKeys(function ($locale) {
             return [$locale => request()->route()->translate($locale)];
         });
+
+        $pages = [];
+        foreach (Page::all() as $page) {
+            array_push($pages, ['root.'.$page->id => route('pages.root', Page::where('id', $page->id)->get()->firstOrFail()->slug)]);
+        }
+
+        $routes = [
+            'home'    => route('home'),
+            'contact' => route('contact'),
+        ];
 
         return array_merge(parent::share($request), [
             'locale'         => app()->getLocale(),
@@ -51,6 +64,8 @@ class HandleInertiaRequests extends Middleware
             'currentRoute'   => Route::current(),
             'mainNavigation' => LitNavigationResource::collection($navigations->main),
             'metaNavigation' => LitNavigationResource::collection($navigations->meta),
+            'footer'         => $footer,
+            'routes'         => array_merge($routes, ...$pages),
         ]);
     }
 }

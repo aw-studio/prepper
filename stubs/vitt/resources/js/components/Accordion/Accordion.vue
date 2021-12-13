@@ -1,7 +1,7 @@
 <template>
     <Disclosure>
         <DisclosureButton
-            class="flex justify-between w-full px-4 py-2 my-2 bg-yellow-100 rounded-sm  focus:outline-none focus:ring focus:ring-yellow-500 focus:ring-opacity-75"
+            class="flex justify-between w-full px-4 py-2 my-2 bg-gray-100 rounded-sm  focus:outline-none focus:ring focus:ring-gray-500 focus:ring-opacity-75"
         >
             {{ title }}
         </DisclosureButton>

@@ -1,17 +1,11 @@
 <template>
-    <nav class="bg-gray-700 py-2">
-        <div class="container flex justify-end space-x-2">
+    <nav class="pt-2 pb-10 bg-gray-100">
+        <div class="container flex justify-end space-x-10">
             <Link
                 :href="link.route"
                 v-for="(link, index) in metaNavigation.data"
                 :key="index"
-                class="
-                    text-white
-                    hover:text-gray-200
-                    no-underline
-                    border-none
-                    text-sm
-                "
+                class="text-base font-bold no-underline border-none  text-primary hover:text-primary"
             >
                 {{ link.title }}
             </Link>

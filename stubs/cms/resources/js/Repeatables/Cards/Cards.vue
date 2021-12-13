@@ -1,5 +1,5 @@
 <template>
-    <section class="my-12 bg-gray-100">
+    <section class="my-12">
         <div class="container grid grid-cols-12 gap-6 py-12">
             <LitBlock
                 :block="repeatable.cards"

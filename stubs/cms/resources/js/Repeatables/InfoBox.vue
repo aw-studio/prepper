@@ -1,7 +1,7 @@
 <template>
     <section class="container">
         <div class="flex justify-center">
-            <Infobox :title="repeatable.title" :text="repeatable.text" />
+            <Infobox :infobox="repeatable" />
         </div>
     </section>
 </template>

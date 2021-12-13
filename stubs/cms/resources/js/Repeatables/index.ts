@@ -5,6 +5,7 @@ import Cards from './Cards/Cards.vue'
 import Card from './Cards/Card.vue'
 import SectionAside from './SectionAside/SectionAside.vue'
 import Accordion from './Accordion/Accordion.vue'
+import ImageText from './ImageText.vue'
 
 export const ContentRepeatables = {
     Text: Text,
@@ -13,6 +14,7 @@ export const ContentRepeatables = {
     SectionCards: Cards,
     SectionAside: SectionAside,
     Accordion: Accordion,
+    ImageText: ImageText,
 };
 
 export const CardRepeatables = {

@@ -8,6 +8,7 @@ use Ignite\Crud\Fields\Block\Repeatables;
 use Lit\Http\Controllers\Pages\RootController as ListackRootController;
 use Lit\Repeatables\AccordionRepeatable;
 use Lit\Repeatables\ImageRepeatable;
+use Lit\Repeatables\ImageTextRepeatable;
 use Lit\Repeatables\SectionAsideRepeatable;
 use Lit\Repeatables\SectionCardsRepeatable;
 use Lit\Repeatables\TextRepeatable;
@@ -66,7 +67,7 @@ class RootConfig extends PagesConfig
         $page->card(function ($form) {
             $form->heroMacro();
         })->width(9);
-        
+
         $page->info('Titel')
             ->width(3);
         $page->card(function ($form) {
@@ -121,10 +122,11 @@ class RootConfig extends PagesConfig
      */
     public function repeatables(Repeatables $repeatables)
     {
-        $repeatables->add(TextRepeatable::class)->button('Text')->icon(fa('align-justify'))->variant('info');
-        $repeatables->add(ImageRepeatable::class)->button('Bild')->icon(fa('image'))->variant('dark');
-        $repeatables->add(SectionCardsRepeatable::class)->button('Cards')->icon(fa('th'))->variant('warning');
-        $repeatables->add(SectionAsideRepeatable::class)->button('Abschnitt mit Marginalspalte')->icon(fa('columns'))->variant('warning');
-        $repeatables->add(AccordionRepeatable::class)->button('Accordion')->icon(fa('chevron-down'))->variant('success');
+        $repeatables->add(TextRepeatable::class)->button('Text')->icon(fa('align-justify'))->variant('light');
+        $repeatables->add(ImageRepeatable::class)->button('Bild')->icon(fa('image'))->variant('light');
+        $repeatables->add(ImageTextRepeatable::class)->button('Bild Text')->icon(fa('image'))->variant('light');
+        $repeatables->add(AccordionRepeatable::class)->button('Accordion')->icon(fa('chevron-down'))->variant('light');
+        $repeatables->add(SectionCardsRepeatable::class)->button('Cards')->icon(fa('th'))->variant('info');
+        $repeatables->add(SectionAsideRepeatable::class)->button('Abschnitt mit Marginalspalte')->icon(fa('columns'))->variant('info');
     }
 }

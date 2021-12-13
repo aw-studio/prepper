@@ -1,6 +1,6 @@
 <template>
     <button
-        class="p-3 -mr-3 rounded-md  active:bg-gray-200 focus:ring-1 focus:ring-gray-300 focus:outline-none"
+        class="p-3 -mr-3 rounded-md  active:bg-primary focus:ring-1 focus:ring-primary-300 focus:outline-none"
         @click="toggle()"
     >
         <div class="relative z-20 w-5 h-3.5">

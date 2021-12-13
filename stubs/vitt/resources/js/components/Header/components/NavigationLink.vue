@@ -2,8 +2,9 @@
     <Link
         v-if="link.children.length == 0"
         :href="link.route"
+        class="font-semibold text-primary"
         :class="{
-            'text-primary': isCurrent(link.route),
+            'border-b border-primary': isCurrent(link.route),
         }"
     >
         {{ link.title }}
@@ -11,9 +12,9 @@
     <Popover v-slot="{ open }" v-else>
         <PopoverButton
             :as="'button'"
-            class="flex items-center"
+            class="flex items-center font-semibold text-primary"
             :class="{
-                'text-primary': isCurrent(link.route),
+                'border-b border-primary': isCurrent(link.route),
             }"
         >
             {{ link.title }}
